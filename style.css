@@ -298,7 +298,26 @@ input, textarea { font-family: inherit; font-size: inherit; outline: none; borde
 /* ============================================
    PROJECTS
    ============================================ */
+.projects__tabs {
+  display: flex; justify-content: center; align-items: center;
+  width: fit-content; margin-inline: auto; margin-bottom: var(--space-xl);
+  padding: 4px; background: var(--clr-bg-tertiary); border-radius: var(--radius-full);
+  border: 1px solid var(--clr-border);
+}
+.projects__tab {
+  padding: 8px 20px; font-size: var(--fs-sm); font-weight: var(--fw-medium);
+  color: var(--clr-text-secondary); background: transparent;
+  border-radius: var(--radius-full); border: none;
+  transition: color var(--transition-fast), background var(--transition-base);
+}
+.projects__tab:hover { color: var(--clr-text-primary); }
+.projects__tab.active {
+  background: var(--clr-card-bg); color: var(--clr-accent);
+  box-shadow: var(--clr-card-shadow);
+}
+
 .projects__grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--space-xl); }
+.project-card.hidden { display: none; }
 
 .project-card {
   background: var(--clr-card-bg); border-radius: var(--radius-lg);
@@ -414,6 +433,17 @@ input, textarea { font-family: inherit; font-size: inherit; outline: none; borde
 }
 .form-success.show { display: flex; }
 .form-success i { font-size: var(--fs-xl); }
+
+.form-error-global {
+  display: none; align-items: center; justify-content: center; gap: var(--space-sm);
+  padding: var(--space-sm); background: rgba(239, 68, 68, 0.1);
+  color: var(--clr-error); border-radius: var(--radius-sm);
+  font-size: var(--fs-sm); font-weight: var(--fw-medium); margin-top: var(--space-sm);
+}
+.form-error-global.show { display: flex; }
+.form-error-global i { font-size: var(--fs-xl); }
+
+.btn--primary:disabled { opacity: 0.7; cursor: not-allowed; transform: none; }
 
 /* ============================================
    FOOTER

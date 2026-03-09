@@ -1,6 +1,9 @@
 /* ============================================
    PORTFOLIO — SCRIPT (Arabic)
    ============================================ */
+/* غيّر YOUR_FORM_ID بمعرّف نموذجك من https://formspree.io */
+const FORMSPREE_ENDPOINT = 'https://formspree.io/f/xzdjdgoa';
+
 document.addEventListener('DOMContentLoaded', () => {
   'use strict';
 
@@ -12,8 +15,11 @@ document.addEventListener('DOMContentLoaded', () => {
   const themeIcon = document.getElementById('themeIcon');
   const scrollTopBtn = document.getElementById('scrollTop');
   const contactForm = document.getElementById('contactForm');
+  const submitBtn = document.getElementById('submitBtn');
   const typingText = document.getElementById('typingText');
   const sections = document.querySelectorAll('section[id]');
+  const projectCards = document.querySelectorAll('.project-card');
+  const projectTabs = document.querySelectorAll('.projects__tab');
 
   /* === 1. DARK / LIGHT MODE === */
   const THEME_KEY = 'portfolio-theme';
@@ -54,6 +60,21 @@ document.addEventListener('DOMContentLoaded', () => {
       icon.classList.remove('bx-x');
       icon.classList.add('bx-menu');
     }
+  });
+
+  /* === 3b. PROJECT FILTER (سوفتوير / شبكات) === */
+  projectTabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      projectTabs.forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+      const filter = tab.getAttribute('data-filter');
+      projectCards.forEach(card => {
+        const cat = card.getAttribute('data-category');
+        const show = filter === 'all' || cat === filter;
+        card.classList.toggle('hidden', !show);
+        if (show) card.classList.add('active');
+      });
+    });
   });
 
   /* === 4. ACTIVE SECTION HIGHLIGHT === */
@@ -133,6 +154,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const emailError = document.getElementById('emailError');
   const msgError = document.getElementById('messageError');
   const formSuccess = document.getElementById('formSuccess');
+  const formError = document.getElementById('formError');
 
   function vName() {
     const v = nameInput.value.trim();
@@ -153,16 +175,38 @@ document.addEventListener('DOMContentLoaded', () => {
     msgError.textContent = ''; msgInput.classList.remove('error'); return true;
   }
 
-  nameInput.addEventListener('input', vName);
-  emailInput.addEventListener('input', vEmail);
-  msgInput.addEventListener('input', vMsg);
+  nameInput.addEventListener('input', () => { vName(); formError.classList.remove('show'); });
+  emailInput.addEventListener('input', () => { vEmail(); formError.classList.remove('show'); });
+  msgInput.addEventListener('input', () => { vMsg(); formError.classList.remove('show'); });
 
-  contactForm.addEventListener('submit', (e) => {
+  contactForm.addEventListener('submit', async (e) => {
     e.preventDefault();
-    if (vName() & vEmail() & vMsg()) {
-      formSuccess.classList.add('show');
-      contactForm.reset();
-      setTimeout(() => formSuccess.classList.remove('show'), 4000);
+    formError.classList.remove('show');
+    if (!(vName() && vEmail() && vMsg())) return;
+
+    const btnText = submitBtn.querySelector('span');
+    const origText = btnText.textContent;
+    submitBtn.disabled = true;
+    btnText.textContent = 'جاري الإرسال...';
+
+    try {
+      const res = await fetch(FORMSPREE_ENDPOINT, {
+        method: 'POST',
+        body: new FormData(contactForm),
+        headers: { Accept: 'application/json' }
+      });
+      if (res.ok) {
+        formSuccess.classList.add('show');
+        contactForm.reset();
+        setTimeout(() => formSuccess.classList.remove('show'), 4000);
+      } else {
+        formError.classList.add('show');
+      }
+    } catch {
+      formError.classList.add('show');
+    } finally {
+      submitBtn.disabled = false;
+      btnText.textContent = origText;
     }
   });
 
