@@ -356,8 +356,26 @@ input, textarea { font-family: inherit; font-size: inherit; outline: none; borde
 /* ============================================
    SKILLS — Badge Grid
    ============================================ */
+.skills__layout {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-xl);
+  align-items: flex-start;
+}
+
+.skills__group-title {
+  font-size: var(--fs-md);
+  font-weight: var(--fw-semibold);
+  color: var(--clr-text-primary);
+  margin-bottom: var(--space-md);
+  text-align: center;
+}
+
 .skills__badges {
-  display: flex; flex-wrap: wrap; justify-content: center; gap: var(--space-md);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-md);
 }
 
 .skill-badge {
@@ -498,12 +516,14 @@ input, textarea { font-family: inherit; font-size: inherit; outline: none; borde
   .contact__content { grid-template-columns: 1fr; }
   .contact__info { flex-direction: row; flex-wrap: wrap; }
   .contact__info-card { flex: 1; min-width: 200px; }
+  .skills__layout { grid-template-columns: 1fr; }
 }
 
 @media screen and (max-width: 768px) {
   :root { --fs-4xl: 2.4rem; --fs-3xl: 1.75rem; --fs-2xl: 1.5rem; }
   .stats__container { grid-template-columns: repeat(3, 1fr); gap: var(--space-sm); }
   .hero__image-wrapper, .hero__image { width: 130px; height: 130px; }
+  .skills__layout { grid-template-columns: 1fr; }
 }
 
 @media screen and (max-width: 480px) {
