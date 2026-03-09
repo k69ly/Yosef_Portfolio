@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="portfolio/assets/images/background_for_github.png" alt="Yosef Ben Zahia — Portfolio" width="100%" />
+  <img src="assets/images/background_for_github.png" alt="Yosef Ben Zahia — Portfolio" width="100%" />
 </p>
 
 <h1 align="center">يـوسـف بن زاهـيـة — Portfolio</h1>
@@ -67,15 +67,15 @@ Flutter · Dart · Laravel · React · PostgreSQL · Google Maps API · Plutu AP
 
 ```
 Yosef_Portfolio/
-├── portfolio/
-│   ├── assets/
-│   │   ├── images/         # Project screenshots & profile photo
-│   │   ├── fonts/          # Custom Arabic fonts (GE SS Two)
-│   │   └── cv.pdf          # Downloadable resume
-│   ├── index.html          # Main HTML structure
-│   ├── style.css           # Complete styling & animations
-│   └── script.js           # Interactive functionality
+├── assets/
+│   ├── images/         # Project screenshots & profile photo
+│   ├── fonts/          # Custom Arabic fonts (GE SS Two)
+│   └── cv.pdf          # Downloadable resume
+├── index.html          # Main HTML structure
+├── style.css           # Complete styling & animations
+├── script.js           # Interactive functionality
 ├── .gitignore
+├── CNAME               # Custom domain configuration
 ├── LICENSE
 └── README.md
 ```
@@ -91,7 +91,7 @@ Yosef_Portfolio/
 
 2. **Navigate to the project**
    ```bash
-   cd Yosef_Portfolio/portfolio
+   cd Yosef_Portfolio
    ```
 
 3. **Open in browser**
