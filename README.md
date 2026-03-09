@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="portfolio/assets/images/profile.JPG" alt="Yosef Ben Zahia" width="150" style="border-radius: 50%;" />
+  <img src="portfolio/assets/images/background_for_github.png" alt="Yosef Ben Zahia — Portfolio" width="100%" />
 </p>
 
 <h1 align="center">يـوسـف بن زاهـيـة — Portfolio</h1>
