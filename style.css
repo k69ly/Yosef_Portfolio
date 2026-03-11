@@ -439,6 +439,11 @@ input, textarea { font-family: inherit; font-size: inherit; outline: none; borde
 .form-input:focus { border-color: var(--clr-accent); background: var(--clr-card-bg); }
 .form-input-wrapper:focus-within i { color: var(--clr-accent); }
 .form-textarea { resize: vertical; min-height: 100px; }
+#contactPhone {
+  text-align: right;
+  padding-inline-start: 12px;
+  padding-inline-end: 46px;
+}
 
 .form-error { display: block; font-size: var(--fs-xs); color: var(--clr-error); margin-top: 4px; min-height: 16px; }
 .form-input.error { border-color: var(--clr-error); }

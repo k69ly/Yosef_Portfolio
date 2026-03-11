@@ -150,9 +150,11 @@ document.addEventListener('DOMContentLoaded', () => {
   const nameInput = document.getElementById('contactName');
   const emailInput = document.getElementById('contactEmail');
   const msgInput = document.getElementById('contactMessage');
+  const phoneInput = document.getElementById('contactPhone');
   const nameError = document.getElementById('nameError');
   const emailError = document.getElementById('emailError');
   const msgError = document.getElementById('messageError');
+  const phoneError = document.getElementById('phoneError');
   const formSuccess = document.getElementById('formSuccess');
   const formError = document.getElementById('formError');
 
@@ -174,15 +176,22 @@ document.addEventListener('DOMContentLoaded', () => {
     if (v.length < 10) { msgError.textContent = 'يجب أن تكون الرسالة 10 أحرف على الأقل'; msgInput.classList.add('error'); return false; }
     msgError.textContent = ''; msgInput.classList.remove('error'); return true;
   }
+  function vPhone() {
+    const v = phoneInput.value.trim();
+    if (!v) { phoneError.textContent = 'رقم الهاتف مطلوب'; phoneInput.classList.add('error'); return false; }
+    if (!/^\d{10,15}$/.test(v.replace(/\+/g, ''))) { phoneError.textContent = 'يرجى إدخال رقم هاتف صحيح'; phoneInput.classList.add('error'); return false; }
+    phoneError.textContent = ''; phoneInput.classList.remove('error'); return true;
+  }
 
   nameInput.addEventListener('input', () => { vName(); formError.classList.remove('show'); });
   emailInput.addEventListener('input', () => { vEmail(); formError.classList.remove('show'); });
   msgInput.addEventListener('input', () => { vMsg(); formError.classList.remove('show'); });
+  phoneInput.addEventListener('input', () => { vPhone(); formError.classList.remove('show'); });
 
   contactForm.addEventListener('submit', async (e) => {
     e.preventDefault();
     formError.classList.remove('show');
-    if (!(vName() && vEmail() && vMsg())) return;
+    if (!(vName() && vEmail() && vPhone() && vMsg())) return;
 
     const btnText = submitBtn.querySelector('span');
     const origText = btnText.textContent;

@@ -78,11 +78,15 @@
           <div class="hero__content">
             <div class="hero__image-wrapper reveal">
               <div class="hero__image-ring"></div>
-              <img
-                src="assets/images/profile.JPG"
-                alt="صورة يوسف بن زاهية"
-                class="hero__image"
-              />
+                <img
+                  src="assets/images/profile.JPG"
+                  alt="صورة يوسف بن زاهية"
+                  class="hero__image"
+                  loading="lazy"
+                  decoding="async"
+                  width="150"
+                  height="150"
+                />
             </div>
             <div class="hero__text reveal reveal-delay-1">
               <span class="hero__greeting">مرحباً، أنا</span>
@@ -206,6 +210,10 @@
                   src="assets/images/project1.png"
                   alt="تطبيق بنيان"
                   class="project-card__image"
+                  loading="lazy"
+                  decoding="async"
+                  width="356"
+                  height="200"
                 />
                 <div class="project-card__overlay">
                   <a href="https://www.facebook.com/share/p/1GSQVXE1nA/?mibextid=wwXIfr" target="_blank" class="project-card__btn"
@@ -237,6 +245,10 @@
                   src="assets/images/project2.png"
                   alt="نظام بنيان"
                   class="project-card__image"
+                  loading="lazy"
+                  decoding="async"
+                  width="356"
+                  height="200"
                 />
                 <div class="project-card__overlay">
                   <a href="https://www.facebook.com/share/p/1GSQVXE1nA/?mibextid=wwXIfr" target="_blank" class="project-card__btn"
@@ -264,6 +276,10 @@
                   src="assets/images/project3.png"
                   alt="11 يونيو — مصرف شمال افريقيا"
                   class="project-card__image"
+                  loading="lazy"
+                  decoding="async"
+                  width="264"
+                  height="200"
                 />
                 <div class="project-card__overlay">
                   <a href="https://www.facebook.com/share/p/17sn5KF463/?mibextid=wwXIfr" target="_blank" class="project-card__btn"
@@ -295,6 +311,10 @@
                   src="assets/images/project4.JPG"
                   alt="زوارة - مصرف شمال افريقيا"
                   class="project-card__image"
+                  loading="lazy"
+                  decoding="async"
+                  width="200"
+                  height="200"
                 />
                 <div class="project-card__overlay">
                   <a href="https://www.facebook.com/share/p/1C7NFWV4y6/?mibextid=wwXIfr" target="_blank" class="project-card__btn"
@@ -324,6 +344,10 @@
                   src="assets/images/project5.JPG"
                   alt="الإدارة العامة - مصرف شمال افريقيا"
                   class="project-card__image"
+                  loading="lazy"
+                  decoding="async"
+                  width="1080"
+                  height="1080"
                 />
                 <div class="project-card__overlay">
                   <a href="https://www.facebook.com/share/p/1CoShVhmXP/?mibextid=wwXIfr" target="_blank" class="project-card__btn"
@@ -355,6 +379,10 @@
                   src="assets/images/project6.JPG"
                   alt="الخدمات الإلكترونية"
                   class="project-card__image"
+                  loading="lazy"
+                  decoding="async"
+                  width="810"
+                  height="1012"
                 />
                 <div class="project-card__overlay">
                   <a href="https://www.facebook.com/share/p/18ChydzkEQ/?mibextid=wwXIfr" target="_blank" class="project-card__btn"
@@ -509,6 +537,21 @@
                   />
                 </div>
                 <span class="form-error" id="emailError"></span>
+              </div>
+              <div class="form-group">
+                <label for="contactPhone" class="form-label">رقم الهاتف</label>
+                <div class="form-input-wrapper">
+                  <i class="bx bx-phone"></i
+                  ><input
+                    type="tel"
+                    id="contactPhone"
+                    name="phone"
+                    class="form-input num-font"
+                    placeholder="09XXXXXXXX"
+                    dir="ltr"
+                  />
+                </div>
+                <span class="form-error" id="phoneError"></span>
               </div>
               <div class="form-group">
                 <label for="contactMessage" class="form-label">رسالتك</label>
