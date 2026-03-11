@@ -230,6 +230,7 @@ input, textarea { font-family: inherit; font-size: inherit; outline: none; borde
 .hero__title { font-size: var(--fs-xl); color: var(--clr-text-secondary); margin-bottom: var(--space-xs); min-height: 1.8em; }
 .hero__title-wrapper { display: inline-flex; align-items: center; }
 .hero__cursor { color: var(--clr-accent); font-weight: var(--fw-light); animation: blink 0.8s step-end infinite; margin-inline-start: 2px; }
+.hero__title-text::before { content: '\200b'; } /* zero-width space to maintain line height when empty */
 @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
 
 .hero__description { font-size: var(--fs-base); color: var(--clr-text-secondary); max-width: 520px; margin: 0 auto; line-height: 1.8; }
