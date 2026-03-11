@@ -194,9 +194,13 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!(vName() && vEmail() && vPhone() && vMsg())) return;
 
     const btnText = submitBtn.querySelector('span');
+    const sendIcon = document.getElementById('sendIcon');
+    const spinnerIcon = document.getElementById('spinnerIcon');
     const origText = btnText.textContent;
     submitBtn.disabled = true;
     btnText.textContent = 'جاري الإرسال...';
+    sendIcon.style.display = 'none';
+    spinnerIcon.style.display = 'inline-block';
 
     try {
       const res = await fetch(FORMSPREE_ENDPOINT, {
@@ -216,7 +220,35 @@ document.addEventListener('DOMContentLoaded', () => {
     } finally {
       submitBtn.disabled = false;
       btnText.textContent = origText;
+      sendIcon.style.display = 'inline-block';
+      spinnerIcon.style.display = 'none';
     }
+  });
+
+  /* === 9b. COPY TO CLIPBOARD === */
+  document.querySelectorAll('.copy-btn').forEach(btn => {
+    btn.addEventListener('click', async () => {
+      const text = btn.getAttribute('data-copy');
+      const icon = btn.querySelector('i');
+      try {
+        await navigator.clipboard.writeText(text);
+        btn.classList.add('copied', 'show-tooltip');
+        btn.setAttribute('data-tooltip', 'تم النسخ!');
+        icon.classList.replace('bx-copy', 'bx-check');
+        setTimeout(() => {
+          btn.classList.remove('copied', 'show-tooltip');
+          btn.removeAttribute('data-tooltip');
+          icon.classList.replace('bx-check', 'bx-copy');
+        }, 2000);
+      } catch {
+        btn.classList.add('show-tooltip');
+        btn.setAttribute('data-tooltip', 'فشل النسخ');
+        setTimeout(() => {
+          btn.classList.remove('show-tooltip');
+          btn.removeAttribute('data-tooltip');
+        }, 2000);
+      }
+    });
   });
 
   /* === 10. SCROLL HANDLER === */
