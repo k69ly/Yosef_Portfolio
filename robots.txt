@@ -1,0 +1,5 @@
+# robots.txt for yosef.ly
+User-agent: *
+Allow: /
+
+Sitemap: https://yosef.ly/sitemap.xml
