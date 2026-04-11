@@ -1,0 +1,440 @@
+<!doctype html>
+<html lang="en" dir="ltr" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-VW0NB255E8"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-VW0NB255E8');
+    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Yosef Zahia — Software Engineer</title>
+    <meta name="description" content="Yosef Zahia — Software Engineer, Web Developer, and Banking Network Engineer." />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://yosef.ly/en.html" />
+    <meta property="og:title" content="Yosef Zahia — Software Engineer" />
+    <meta property="og:description" content="Software Engineer, Web & Application Developer, and Banking Network Engineer." />
+    <meta property="og:image" content="https://yosef.ly/assets/og-image.jpg" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Yosef Zahia — Software Engineer" />
+    <meta name="twitter:description" content="Software Engineer, Web & Application Developer, and Banking Network Engineer." />
+    <meta name="twitter:image" content="https://yosef.ly/assets/og-image.jpg" />
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://yosef.ly/en.html" />
+
+    <!-- Keywords -->
+    <meta name="keywords" content="Yosef Zahia, Software Engineer, Application Developer, Web Developer, Banking Networks, Flutter, React, Laravel, Libya" />
+
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Yosef Zahia",
+        "url": "https://yosef.ly/en.html",
+        "jobTitle": "Software Engineer",
+        "description": "Software Engineer, Web & Application Developer, and Banking Network Engineer",
+        "address": {
+          "@type": "PostalAddress",
+          "addressCountry": "LY"
+        },
+        "email": "info@yosef.ly",
+        "sameAs": [
+          "https://www.linkedin.com/in/yosefzahia",
+          "https://facebook.com/k69ly",
+          "https://t.me/k69ly"
+        ],
+        "knowsAbout": [
+          "Software Engineering",
+          "Flutter",
+          "React",
+          "Laravel",
+          "Banking Networks",
+          "Application Development"
+        ]
+      }
+    </script>
+
+    <!-- Favicon & Apple Touch Icon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png" />
+    <meta name="theme-color" content="#0891b2" />
+
+    <!-- Preload hero image for faster display -->
+    <link rel="preload" as="image" href="assets/images/profile.JPG" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- NAVBAR -->
+    <header class="navbar" id="navbar" dir="rtl">
+      <div class="navbar__container container">
+        <a href="#home" class="navbar__logo" dir="ltr">
+          <span class="logo-bracket">&lt;</span>Yosef<span class="logo-dot">.</span>Dev<span class="logo-bracket">/&gt;</span>
+        </a>
+        <nav class="navbar__menu" id="navMenu" dir="ltr">
+          <ul class="navbar__list">
+            <li>
+              <a href="#home" class="navbar__link active-link" data-section="home"><i class="bx bx-home-alt"></i><span>Home</span></a>
+            </li>
+            <li>
+              <a href="#projects" class="navbar__link" data-section="projects"><i class="bx bx-briefcase"></i><span>Projects</span></a>
+            </li>
+            <li>
+              <a href="#skills" class="navbar__link" data-section="skills"><i class="bx bx-code-alt"></i><span>Skills</span></a>
+            </li>
+            <li>
+              <a href="#contact" class="navbar__link" data-section="contact"><i class="bx bx-envelope"></i><span>Contact</span></a>
+            </li>
+          </ul>
+        </nav>
+        <div class="navbar__actions">
+          <a href="index.html" class="lang-toggle" aria-label="Switch to Arabic">AR</a>
+          <button class="theme-toggle" id="themeToggle" aria-label="Toggle Theme">
+            <i class="bx bx-moon" id="themeIcon"></i>
+          </button>
+          <button class="navbar__toggle" id="navToggle" aria-label="Menu">
+            <i class="bx bx-menu"></i>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <!-- HERO -->
+      <section class="hero section" id="home">
+        <div class="hero__container container">
+          <div class="hero__content">
+            <div class="hero__image-wrapper reveal">
+              <div class="hero__image-ring"></div>
+                <img src="assets/images/profile.JPG" alt="Yosef Zahia Profile Picture" class="hero__image" loading="lazy" decoding="async" width="266" height="400" />
+            </div>
+            <div class="hero__text reveal reveal-delay-1">
+              <span class="hero__greeting">Hello, I'm</span>
+              <h1 class="hero__name">Yosef Zahia</h1>
+              <p class="hero__title">
+                <span class="hero__title-wrapper"><span class="hero__title-text" id="typingText"></span><span class="hero__cursor">|</span></span>
+              </p>
+            </div>
+            <div class="hero__socials reveal reveal-delay-2">
+              <a href="https://t.me/k69ly" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Telegram"><i class="bx bxl-telegram"></i></a>
+              <a href="https://www.linkedin.com/in/yosefzahia" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="LinkedIn"><i class="bx bxl-linkedin"></i></a>
+              <a href="https://facebook.com/k69ly" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Facebook"><i class="bx bxl-facebook"></i></a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STATS -->
+      <section class="stats section" id="stats">
+        <div class="stats__container container">
+          <div class="stats__card reveal">
+            <div class="stats__icon"><i class="bx bx-book"></i></div>
+            <div class="stats__value">
+              <span class="stats__plus">+</span>
+              <h3 class="stats__number" data-target="3">0</h3>
+            </div>
+            <p class="stats__label">Years of Continuous Learning</p>
+          </div>
+          <div class="stats__card reveal reveal-delay-1">
+            <div class="stats__icon"><i class="bx bx-file-blank"></i></div>
+            <div class="stats__value">
+              <span class="stats__plus">+</span>
+              <h3 class="stats__number" data-target="120">0</h3>
+            </div>
+            <p class="stats__label">Work Papers Completed</p>
+          </div>
+          <div class="stats__card reveal reveal-delay-2">
+            <div class="stats__icon"><i class="bx bx-server"></i></div>
+            <div class="stats__value">
+              <span class="stats__plus">+</span>
+              <h3 class="stats__number" data-target="25">0</h3>
+            </div>
+            <p class="stats__label">Technical Services Provided</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ACTIONS -->
+      <section class="actions section">
+        <div class="actions__container container reveal">
+          <a href="assets/cv.pdf" download class="btn btn--primary"><i class="bx bx-cloud-download"></i>Download Resume</a>
+          <a href="https://wa.me/218934448886" target="_blank" rel="noopener noreferrer" class="btn btn--secondary btn--whatsapp"><i class="bx bxl-whatsapp"></i>WhatsApp</a>
+          <a href="mailto:info@yosef.ly" class="btn btn--secondary btn--email"><i class="bx bx-envelope"></i>Email Me</a>
+        </div>
+      </section>
+
+      <!-- PROJECTS -->
+      <section class="projects section" id="projects">
+        <div class="projects__container container">
+          <div class="section__header reveal">
+            <span class="section__subtitle">My Work</span>
+            <h2 class="section__title">Completed Projects</h2>
+            <p class="section__description">
+              Real-world projects reflecting my expertise in software engineering and banking network development.
+            </p>
+          </div>
+          <div class="projects__tabs reveal">
+            <button type="button" class="projects__tab active" data-filter="all">All</button>
+            <button type="button" class="projects__tab" data-filter="software">Software</button>
+            <button type="button" class="projects__tab" data-filter="networks">Networks</button>
+          </div>
+          <div class="projects__grid">
+            <article class="project-card reveal" data-category="software">
+              <div class="project-card__image-wrapper">
+                <img src="assets/images/project1.png" alt="Bonyan App" class="project-card__image" loading="lazy" decoding="async" width="800" height="450" />
+                <div class="project-card__overlay">
+                  <a href="https://www.facebook.com/share/p/1GSQVXE1nA/?mibextid=wwXIfr" target="_blank" class="project-card__btn"><i class="bx bx-link-external"></i>View Project</a>
+                </div>
+              </div>
+              <div class="project-card__content">
+                <h3 class="project-card__title">Bonyan App</h3>
+                <p class="project-card__description">
+                  An application specialized in the construction field allowing users to request materials and craftsmen with an order management and tracking system, supporting credit card payments and Google Maps.
+                </p>
+                <div class="project-card__tags">
+                  <span class="tag">Flutter</span><span class="tag">Dart</span><span class="tag">Laravel</span><span class="tag">Google Maps</span><span class="tag">Plutu API</span>
+                </div>
+              </div>
+            </article>
+            <article class="project-card reveal reveal-delay-1" data-category="software">
+              <div class="project-card__image-wrapper">
+                <img src="assets/images/project2.png" alt="Bonyan System" class="project-card__image" loading="lazy" decoding="async" width="800" height="445" />
+                <div class="project-card__overlay">
+                  <a href="https://www.facebook.com/share/p/1GSQVXE1nA/?mibextid=wwXIfr" target="_blank" class="project-card__btn"><i class="bx bx-link-external"></i>View Project</a>
+                </div>
+              </div>
+              <div class="project-card__content">
+                <h3 class="project-card__title">Bonyan Sales & Accounting System</h3>
+                <p class="project-card__description">
+                  A comprehensive system for sales, accounting, and inventory management providing extensive reports and accurate operation tracking.
+                </p>
+                <div class="project-card__tags">
+                  <span class="tag">React</span><span class="tag">Laravel</span><span class="tag">PostgreSQL</span>
+                </div>
+              </div>
+            </article>
+            <article class="project-card reveal" data-category="networks">
+              <div class="project-card__image-wrapper">
+                <img src="assets/images/project3.png" alt="11 June — NAR Bank" class="project-card__image" loading="lazy" decoding="async" width="800" height="606" />
+                <div class="project-card__overlay">
+                  <a href="https://www.facebook.com/share/p/17sn5KF463/?mibextid=wwXIfr" target="_blank" class="project-card__btn"><i class="bx bx-link-external"></i>View Project</a>
+                </div>
+              </div>
+              <div class="project-card__content">
+                <h3 class="project-card__title">11 June Branch — NAB Bank</h3>
+                <p class="project-card__description">
+                  Established the branch network from scratch, setting up the entire infrastructure while providing continuous technical support.
+                </p>
+                <div class="project-card__tags">
+                  <span class="tag">Networks</span><span class="tag">Infrastructure</span><span class="tag">Tech Support</span>
+                </div>
+              </div>
+            </article>
+            <article class="project-card reveal reveal-delay-1" data-category="networks">
+              <div class="project-card__image-wrapper">
+                <img src="assets/images/project4.JPG" alt="Zuwara — NAR Bank" class="project-card__image" loading="lazy" decoding="async" width="800" height="800" />
+                <div class="project-card__overlay">
+                  <a href="https://www.facebook.com/share/p/1C7NFWV4y6/?mibextid=wwXIfr" target="_blank" class="project-card__btn"><i class="bx bx-link-external"></i>View Project</a>
+                </div>
+              </div>
+              <div class="project-card__content">
+                <h3 class="project-card__title">Zuwara Branch — NAB Bank</h3>
+                <p class="project-card__description">
+                  Set up the branch network and configured the complete infrastructure to prepare the branch for full operational efficiency.
+                </p>
+                <div class="project-card__tags">
+                  <span class="tag">Networks</span><span class="tag">Infrastructure</span><span class="tag">Configuration</span>
+                </div>
+              </div>
+            </article>
+            <article class="project-card project-card--tall reveal" data-category="networks">
+              <div class="project-card__image-wrapper">
+                <img src="assets/images/project5.JPG" alt="General Administration — NAB Bank" class="project-card__image" loading="lazy" decoding="async" width="800" height="800" />
+                <div class="project-card__overlay">
+                  <a href="https://www.facebook.com/share/p/1CoShVhmXP/?mibextid=wwXIfr" target="_blank" class="project-card__btn"><i class="bx bx-link-external"></i>View Project</a>
+                </div>
+              </div>
+              <div class="project-card__content">
+                <h3 class="project-card__title">General Administration — NAB Bank</h3>
+                <p class="project-card__description">
+                  Providing tech support and conducting field visits for the general management in collaboration with the infrastructure company.
+                </p>
+                <div class="project-card__tags">
+                  <span class="tag">Tech Support</span><span class="tag">Field Visits</span><span class="tag">Infrastructure</span>
+                </div>
+              </div>
+            </article>
+            <article class="project-card project-card--tall reveal reveal-delay-1" data-category="networks">
+              <div class="project-card__image-wrapper">
+                <img src="assets/images/project6.JPG" alt="Electronic Services — NAB Bank" class="project-card__image" loading="lazy" decoding="async" width="640" height="800" />
+                <div class="project-card__overlay">
+                  <a href="https://www.facebook.com/share/p/18ChydzkEQ/?mibextid=wwXIfr" target="_blank" class="project-card__btn"><i class="bx bx-link-external"></i>View Project</a>
+                </div>
+              </div>
+              <div class="project-card__content">
+                <h3 class="project-card__title">Electronic Services — NAB Bank</h3>
+                <p class="project-card__description">
+                  Fully equipped the electronic services department, including infrastructure, communications, and technical configuration.
+                </p>
+                <div class="project-card__tags">
+                  <span class="tag">Infrastructure</span><span class="tag">Communications</span><span class="tag">Tech Setup</span>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- SKILLS -->
+      <section class="skills section" id="skills">
+        <div class="skills__container container">
+          <div class="section__header reveal">
+            <span class="section__subtitle">My Abilities</span>
+            <h2 class="section__title">Technical Skills</h2>
+            <p class="section__description">
+              The technologies and tools I use to build robust projects.
+            </p>
+          </div>
+          <div class="skills__layout reveal">
+            <div class="skills__group">
+              <h3 class="skills__group-title">Web & App Development</h3>
+              <div class="skills__badges">
+                <div class="skill-badge"><i class="bx bxl-html5"></i><span>HTML</span></div>
+                <div class="skill-badge"><i class="bx bxl-css3"></i><span>CSS</span></div>
+                <div class="skill-badge"><i class="bx bxl-javascript"></i><span>JavaScript</span></div>
+                <div class="skill-badge"><i class="bx bxl-react"></i><span>React</span></div>
+                <div class="skill-badge"><i class="bx bxl-flutter"></i><span>Flutter</span></div>
+                <div class="skill-badge"><i class="bx bxl-php"></i><span>PHP</span></div>
+              </div>
+            </div>
+            <div class="skills__group">
+              <h3 class="skills__group-title">Databases & Tools</h3>
+              <div class="skills__badges">
+                <div class="skill-badge"><i class="bx bx-data"></i><span>MySQL</span></div>
+                <div class="skill-badge"><i class="bx bxl-firebase"></i><span>Firebase</span></div>
+                <div class="skill-badge"><i class="bx bxl-git"></i><span>Git</span></div>
+                <div class="skill-badge"><i class="bx bx-globe"></i><span>REST APIs</span></div>
+                <div class="skill-badge"><i class="bx bx-network-chart"></i><span>Banking Networks</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CONTACT -->
+      <section class="contact section" id="contact">
+        <div class="contact__container container">
+          <div class="section__header reveal">
+            <span class="section__subtitle">Get in Touch</span>
+            <h2 class="section__title">Contact Me</h2>
+            <p class="section__description">
+              Have a project in mind? Let's work together to turn your ideas into reality.
+            </p>
+          </div>
+          <div class="contact__content">
+            <div class="contact__info reveal">
+              <div class="contact__info-card">
+                <i class="bx bx-envelope"></i>
+                <div>
+                  <h4>Email</h4>
+                  <p>info@yosef.ly</p>
+                </div>
+                <button class="copy-btn" data-copy="info@yosef.ly" aria-label="Copy Email">
+                  <i class="bx bx-copy"></i>
+                </button>
+              </div>
+              <div class="contact__info-card">
+                <i class="bx bxl-whatsapp"></i>
+                <div>
+                  <h4>WhatsApp</h4>
+                  <p class="num-font">0934448886</p>
+                </div>
+                <button class="copy-btn" data-copy="0934448886" aria-label="Copy WhatsApp Number">
+                  <i class="bx bx-copy"></i>
+                </button>
+              </div>
+              <div class="contact__info-card">
+                <i class="bx bx-map"></i>
+                <div>
+                  <h4>Location</h4>
+                  <p>Libya</p>
+                </div>
+              </div>
+            </div>
+            <form class="contact__form reveal reveal-delay-1" id="contactForm" novalidate>
+              <div class="form-group">
+                <label for="contactName" class="form-label">Full Name</label>
+                <div class="form-input-wrapper">
+                  <i class="bx bx-user"></i><input type="text" id="contactName" name="name" class="form-input" placeholder="Enter your full name" required />
+                </div>
+                <span class="form-error" id="nameError"></span>
+              </div>
+              <div class="form-group">
+                <label for="contactEmail" class="form-label">Email Address</label>
+                <div class="form-input-wrapper">
+                  <i class="bx bx-envelope"></i><input type="email" id="contactEmail" name="email" class="form-input" placeholder="example@email.com" required />
+                </div>
+                <span class="form-error" id="emailError"></span>
+              </div>
+              <div class="form-group">
+                <label for="contactPhone" class="form-label">Phone Number</label>
+                <div class="form-input-wrapper">
+                  <i class="bx bx-phone"></i><input type="tel" id="contactPhone" name="phone" class="form-input num-font" placeholder="09XXXXXXXX" dir="ltr" />
+                </div>
+                <span class="form-error" id="phoneError"></span>
+              </div>
+              <div class="form-group">
+                <label for="contactMessage" class="form-label">Your Message</label>
+                <div class="form-input-wrapper form-input-wrapper--textarea">
+                  <i class="bx bx-message-dots"></i><textarea id="contactMessage" name="message" class="form-input form-textarea" placeholder="Tell me about your project..." rows="5" required></textarea>
+                </div>
+                <span class="form-error" id="messageError"></span>
+              </div>
+              <button type="submit" class="btn btn--primary btn--full" id="submitBtn">
+                <i class="bx bx-send" id="sendIcon"></i><i class="bx bx-loader-alt bx-spin" id="spinnerIcon" style="display:none"></i><span>Send Message</span>
+              </button>
+              <div class="form-success" id="formSuccess">
+                <i class="bx bx-check-circle"></i><span>Message sent successfully!</span>
+              </div>
+              <div class="form-error-global" id="formError">
+                <i class="bx bx-error-circle"></i><span>An error occurred while sending. Please try again or contact me directly.</span>
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="footer__container container">
+        <div class="footer__socials">
+          <a href="https://t.me/k69ly" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Telegram"><i class="bx bxl-telegram"></i></a>
+          <a href="https://www.linkedin.com/in/yosefzahia" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="LinkedIn"><i class="bx bxl-linkedin"></i></a>
+          <a href="https://facebook.com/k69ly" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Facebook"><i class="bx bxl-facebook"></i></a>
+        </div>
+        <p class="footer__copy">
+          &copy; B E N Z A H I A . All Rights Reserved
+        </p>
+      </div>
+    </footer>
+
+    <button class="scroll-top" id="scrollTop" aria-label="Back to top">
+      <i class="bx bx-up-arrow-alt"></i>
+    </button>
+    <script src="script.js"></script>
+  </body>
+</html>

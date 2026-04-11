@@ -185,6 +185,15 @@ input, textarea { font-family: inherit; font-size: inherit; outline: none; borde
 }
 .theme-toggle:hover { color: var(--clr-accent); background: var(--clr-accent-glow); }
 
+.lang-toggle {
+  display: flex; align-items: center; justify-content: center;
+  width: 40px; height: 40px; border-radius: var(--radius-sm);
+  color: var(--clr-text-secondary); font-size: var(--fs-sm); font-weight: var(--fw-bold);
+  font-family: var(--ff-num); cursor: pointer;
+  transition: color var(--transition-fast), background var(--transition-fast);
+}
+.lang-toggle:hover { color: var(--clr-accent); background: var(--clr-accent-glow); }
+
 .navbar__toggle {
   display: none; align-items: center; justify-content: center;
   width: 40px; height: 40px; border-radius: var(--radius-sm);

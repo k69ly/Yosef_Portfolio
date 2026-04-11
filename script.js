@@ -128,7 +128,8 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /* === 8. TYPING & FLIP EFFECT (Arabic) === */
-  const titles = ['مهندس برمجيات', 'مطور تطبيقات ومواقع الكترونية', 'مهندس شبكات مصرفية'];
+  const isArabic = document.documentElement.lang === 'ar';
+  const titles = isArabic ? ['مهندس برمجيات', 'مطور تطبيقات ومواقع الكترونية', 'مهندس شبكات مصرفية'] : ['Software Engineer', 'Web & App Developer', 'Banking Network Engineer'];
   let tIdx = 0, cIdx = 0;
   const typingCursor = document.querySelector('.hero__cursor');
 
@@ -185,26 +186,26 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function vName() {
     const v = nameInput.value.trim();
-    if (!v) { nameError.textContent = 'الاسم مطلوب'; nameInput.classList.add('error'); return false; }
-    if (v.length < 2) { nameError.textContent = 'يجب أن يكون الاسم حرفين على الأقل'; nameInput.classList.add('error'); return false; }
+    if (!v) { nameError.textContent = isArabic ? 'الاسم مطلوب' : 'Name is required'; nameInput.classList.add('error'); return false; }
+    if (v.length < 2) { nameError.textContent = isArabic ? 'يجب أن يكون الاسم حرفين على الأقل' : 'Name must be at least 2 characters'; nameInput.classList.add('error'); return false; }
     nameError.textContent = ''; nameInput.classList.remove('error'); return true;
   }
   function vEmail() {
     const v = emailInput.value.trim();
-    if (!v) { emailError.textContent = 'البريد الإلكتروني مطلوب'; emailInput.classList.add('error'); return false; }
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)) { emailError.textContent = 'يرجى إدخال بريد إلكتروني صحيح'; emailInput.classList.add('error'); return false; }
+    if (!v) { emailError.textContent = isArabic ? 'البريد الإلكتروني مطلوب' : 'Email is required'; emailInput.classList.add('error'); return false; }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)) { emailError.textContent = isArabic ? 'يرجى إدخال بريد إلكتروني صحيح' : 'Please enter a valid email'; emailInput.classList.add('error'); return false; }
     emailError.textContent = ''; emailInput.classList.remove('error'); return true;
   }
   function vMsg() {
     const v = msgInput.value.trim();
-    if (!v) { msgError.textContent = 'الرسالة مطلوبة'; msgInput.classList.add('error'); return false; }
-    if (v.length < 10) { msgError.textContent = 'يجب أن تكون الرسالة 10 أحرف على الأقل'; msgInput.classList.add('error'); return false; }
+    if (!v) { msgError.textContent = isArabic ? 'الرسالة مطلوبة' : 'Message is required'; msgInput.classList.add('error'); return false; }
+    if (v.length < 10) { msgError.textContent = isArabic ? 'يجب أن تكون الرسالة 10 أحرف على الأقل' : 'Message must be at least 10 characters'; msgInput.classList.add('error'); return false; }
     msgError.textContent = ''; msgInput.classList.remove('error'); return true;
   }
   function vPhone() {
     const v = phoneInput.value.trim();
-    if (!v) { phoneError.textContent = 'رقم الهاتف مطلوب'; phoneInput.classList.add('error'); return false; }
-    if (!/^\d{10,15}$/.test(v.replace(/\+/g, ''))) { phoneError.textContent = 'يرجى إدخال رقم هاتف صحيح'; phoneInput.classList.add('error'); return false; }
+    if (!v) { phoneError.textContent = isArabic ? 'رقم الهاتف مطلوب' : 'Phone number is required'; phoneInput.classList.add('error'); return false; }
+    if (!/^\d{10,15}$/.test(v.replace(/\+/g, ''))) { phoneError.textContent = isArabic ? 'يرجى إدخال رقم هاتف صحيح' : 'Please enter a valid phone number'; phoneInput.classList.add('error'); return false; }
     phoneError.textContent = ''; phoneInput.classList.remove('error'); return true;
   }
 
@@ -223,7 +224,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const spinnerIcon = document.getElementById('spinnerIcon');
     const origText = btnText.textContent;
     submitBtn.disabled = true;
-    btnText.textContent = 'جاري الإرسال...';
+    btnText.textContent = isArabic ? 'جاري الإرسال...' : 'Sending...';
     sendIcon.style.display = 'none';
     spinnerIcon.style.display = 'inline-block';
 
@@ -258,7 +259,7 @@ document.addEventListener('DOMContentLoaded', () => {
       try {
         await navigator.clipboard.writeText(text);
         btn.classList.add('copied', 'show-tooltip');
-        btn.setAttribute('data-tooltip', 'تم النسخ!');
+        btn.setAttribute('data-tooltip', isArabic ? 'تم النسخ!' : 'Copied!');
         icon.classList.replace('bx-copy', 'bx-check');
         setTimeout(() => {
           btn.classList.remove('copied', 'show-tooltip');
@@ -267,7 +268,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 2000);
       } catch {
         btn.classList.add('show-tooltip');
-        btn.setAttribute('data-tooltip', 'فشل النسخ');
+        btn.setAttribute('data-tooltip', isArabic ? 'فشل النسخ' : 'Copy failed');
         setTimeout(() => {
           btn.classList.remove('show-tooltip');
           btn.removeAttribute('data-tooltip');
