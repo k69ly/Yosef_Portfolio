@@ -127,22 +127,47 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  /* === 8. TYPING EFFECT (Arabic — 2 titles only) === */
+  /* === 8. TYPING & FLIP EFFECT (Arabic) === */
   const titles = ['مهندس برمجيات', 'مطور تطبيقات ومواقع الكترونية', 'مهندس شبكات مصرفية'];
-  let tIdx = 0, cIdx = 0, deleting = false, speed = 100;
+  let tIdx = 0, cIdx = 0;
+  const typingCursor = document.querySelector('.hero__cursor');
 
   function typeEffect() {
-    const cur = titles[tIdx];
-    if (deleting) {
-      typingText.textContent = cur.substring(0, --cIdx);
-      speed = 40;
+    const cur = titles[0];
+    typingText.textContent = cur.substring(0, ++cIdx);
+    
+    if (cIdx < cur.length) {
+      setTimeout(typeEffect, 80);
     } else {
-      typingText.textContent = cur.substring(0, ++cIdx);
-      speed = 80;
+      setTimeout(() => {
+        if (typingCursor) typingCursor.classList.add('hide');
+        startFlipLoop();
+      }, 1500); // Wait 1.5s after typing finishes
     }
-    if (!deleting && cIdx === cur.length) { speed = 2000; deleting = true; }
-    else if (deleting && cIdx === 0) { deleting = false; tIdx = (tIdx + 1) % titles.length; speed = 300; }
-    setTimeout(typeEffect, speed);
+  }
+
+  function startFlipLoop() {
+    tIdx = 1; 
+    const triggerFlip = () => {
+      typingText.classList.add('flip-out');
+      
+      setTimeout(() => {
+        typingText.textContent = titles[tIdx];
+        tIdx = (tIdx + 1) % titles.length;
+        
+        typingText.classList.remove('flip-out');
+        typingText.classList.add('flip-in');
+        
+        void typingText.offsetWidth;
+        typingText.classList.remove('flip-in');
+      }, 600);
+    };
+
+    // Start flipping every 3 seconds
+    setInterval(triggerFlip, 3000);
+    
+    // Trigger the first flip after a very short delay
+    setTimeout(triggerFlip, 500); 
   }
   typeEffect();
 

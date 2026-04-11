@@ -227,10 +227,14 @@ input, textarea { font-family: inherit; font-size: inherit; outline: none; borde
   margin-bottom: var(--space-xs);
 }
 
-.hero__title { font-size: var(--fs-xl); color: var(--clr-text-secondary); margin-bottom: var(--space-xs); min-height: 1.8em; }
-.hero__title-wrapper { display: inline-flex; align-items: center; }
+.hero__title { font-size: var(--fs-xl); color: var(--clr-text-secondary); margin-bottom: var(--space-xs); min-height: 1.8em; perspective: 1000px; }
+.hero__title-wrapper { display: inline-flex; align-items: center; transform-style: preserve-3d; }
 .hero__cursor { color: var(--clr-accent); font-weight: var(--fw-light); animation: blink 0.8s step-end infinite; margin-inline-start: 2px; }
 .hero__title-text::before { content: '\200b'; } /* zero-width space to maintain line height when empty */
+.hero__title-text { display: inline-block; transition: transform 0.6s cubic-bezier(0.68, -0.55, 0.27, 1.55), opacity 0.5s ease; }
+.hero__title-text.flip-out { transform: translateY(-30px) rotateX(-90deg); opacity: 0; }
+.hero__title-text.flip-in { transform: translateY(30px) rotateX(90deg); opacity: 0; transition: none; }
+.hero__cursor.hide { display: none; }
 @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
 
 .hero__description { font-size: var(--fs-base); color: var(--clr-text-secondary); max-width: 520px; margin: 0 auto; line-height: 1.8; }
