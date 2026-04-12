@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="ar" dir="rtl" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>الصفحة غير موجودة | يوسف بن زاهية</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png" />
+    <meta name="theme-color" content="#0891b2" />
+
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="/style.css" />
+    <style>
+      .error-page {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        text-align: center;
+        padding: var(--space-2xl);
+      }
+      .error-page h1 {
+        font-size: 8rem;
+        font-weight: var(--fw-extrabold);
+        background: var(--clr-accent-gradient);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        line-height: 1;
+        margin-bottom: var(--space-md);
+        font-family: var(--ff-num);
+      }
+      .error-page h2 {
+        font-size: var(--fs-2xl);
+        color: var(--clr-text-primary);
+        margin-bottom: var(--space-sm);
+      }
+      .error-page p {
+        font-size: var(--fs-md);
+        color: var(--clr-text-secondary);
+        margin-bottom: var(--space-2xl);
+        max-width: 500px;
+        line-height: 1.8;
+      }
+      .error-actions {
+        display: flex;
+        gap: var(--space-md);
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      .icon-large {
+        font-size: 6rem;
+        color: var(--clr-accent);
+        margin-bottom: var(--space-md);
+        opacity: 0.2;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="error-page container">
+      <i class='bx bx-compass icon-large'></i>
+      <h1>404</h1>
+      <h2>عذراً، الصفحة غير موجودة!</h2>
+      <p>
+        يبدو أنك وصلت لصفحة مكسورة أو تم نقلها، أو أن الرابط غير صحيح.<br>
+        أو ربما تكون قد ضللت الطريق؟ يمكنك دائماً العودة إلى بر الأمان!
+      </p>
+      
+      <div class="error-actions">
+        <a href="/" class="btn btn--primary">
+          <i class="bx bx-home-alt"></i>العودة للرئيسية
+        </a>
+        <a href="/en/" class="btn btn--secondary" dir="ltr">
+          Go to English Site
+        </a>
+      </div>
+    </main>
+
+    <!-- Theme synchronization script -->
+    <script>
+      (function() {
+        const THEME_KEY = 'portfolio-theme';
+        const saved = localStorage.getItem(THEME_KEY);
+        const preferDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        document.documentElement.setAttribute('data-theme', saved || (preferDark ? 'dark' : 'light'));
+      })();
+    </script>
+  </body>
+</html>
