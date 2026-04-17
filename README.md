@@ -82,37 +82,14 @@ Yosef_Portfolio/
 
 ---
 
-## ⚡ Quick Start
+## 🔒 License & Usage
 
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/k69ly/Yosef_Portfolio.git
-   ```
+This project is **Proprietary**. All rights are reserved by **Yosef Ben Zahia** (Ben Zahia Holding). 
 
-2. **Navigate to the project**
-   ```bash
-   cd Yosef_Portfolio
-   ```
-
-3. **Open in browser**
-   ```bash
-   open index.html
-   ```
-   Or simply open `index.html` in your preferred browser.
-
-> No build tools, no dependencies, no setup required — it just works! ⚡
-
----
-
-## 📬 Contact
-
-<p align="center">
-  <a href="mailto:info@yosef.ly"><img src="https://img.shields.io/badge/Email-info%40yosef.ly-D14836?style=for-the-badge&logo=gmail&logoColor=white" alt="Email" /></a>
-  <a href="https://wa.me/218934448886"><img src="https://img.shields.io/badge/WhatsApp-25D366?style=for-the-badge&logo=whatsapp&logoColor=white" alt="WhatsApp" /></a>
-</p>
+**Unauthorized reproduction, modification, or distribution of this code, design, or content is strictly prohibited.** This repository exists for portfolio showcasing and educational review only. Use of this code for commercial or personal projects without explicit written permission is forbidden.
 
 ---
 
 <p align="center">
-  Made with ❤️ by <strong>Yosef Ben Zahia</strong> · © 2026 All rights reserved.
+  Made with ❤️ by <strong>Yosef Ben Zahia</strong> · © 2026 Ben Zahia Holding. All rights reserved.
 </p>

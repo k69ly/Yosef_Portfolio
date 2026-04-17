@@ -525,7 +525,10 @@ input, textarea { font-family: inherit; font-size: inherit; outline: none; borde
 .footer { padding: var(--space-xl) 0; border-top: 1px solid var(--clr-border); }
 .footer__container { display: flex; flex-direction: column; align-items: center; gap: var(--space-md); }
 .footer__socials { display: flex; gap: var(--space-md); }
-.footer__copy { font-size: var(--fs-sm); color: var(--clr-text-muted); }
+.footer__copy { text-align: center; }
+.footer__copyright { font-size: var(--fs-sm); color: var(--clr-text-primary); margin-bottom: 4px; }
+.footer__brand { font-weight: var(--fw-bold); color: var(--clr-accent); }
+.footer__legal { font-size: var(--fs-xs); color: var(--clr-text-muted); font-weight: var(--fw-medium); }
 
 /* ============================================
    SCROLL TO TOP
