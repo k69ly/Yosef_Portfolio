@@ -234,6 +234,21 @@ input, textarea { font-family: inherit; font-size: inherit; outline: none; borde
   background: var(--clr-accent-gradient);
   -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
   margin-bottom: var(--space-xs);
+  display: inline-block;
+  position: relative;
+}
+
+.verified-badge {
+  position: absolute;
+  inset-inline-start: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+  margin-inline-start: 0.5rem;
+  font-size: 0.55em;
+  color: #1da1f2;
+  -webkit-text-fill-color: #1da1f2; 
+  filter: drop-shadow(0 2px 4px rgba(29, 161, 242, 0.3));
+  white-space: nowrap;
 }
 
 .hero__title { font-size: var(--fs-xl); color: var(--clr-text-secondary); margin-bottom: var(--space-xs); min-height: 1.8em; perspective: 1000px; }
