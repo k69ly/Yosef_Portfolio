@@ -62,20 +62,105 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  /* === 3b. PROJECT FILTER (سوفتوير / شبكات) === */
+  /* === 3b. PORTFOLIO CAROUSEL === */
+  const carouselGrid = document.querySelector('.projects__grid');
+  const dotsContainer = document.querySelector('.projects__dots');
+  const prevBtn = document.querySelector('.projects__nav--prev');
+  const nextBtn = document.querySelector('.projects__nav--next');
+  let originalCards = [...projectCards];
+
+  function scrollToCard(index) {
+    if (!carouselGrid) return;
+    const cards = Array.from(carouselGrid.children);
+    if (!cards[index]) return;
+    // Calculate precise center position of the targeted card
+    const targetPos = cards[index].offsetLeft - carouselGrid.offsetLeft - (carouselGrid.clientWidth / 2) + (cards[index].clientWidth / 2);
+    carouselGrid.scrollTo({ left: targetPos, behavior: 'smooth' });
+  }
+
+  function getCurrentIndex() {
+    if (!carouselGrid) return 0;
+    const cards = Array.from(carouselGrid.children);
+    const center = carouselGrid.scrollLeft + carouselGrid.clientWidth / 2;
+    let closest = 0; let minDist = Infinity;
+    cards.forEach((card, i) => {
+      const cardCenter = (card.offsetLeft - carouselGrid.offsetLeft) + card.clientWidth / 2;
+      const dist = Math.abs(cardCenter - center);
+      if (dist < minDist) { minDist = dist; closest = i; }
+    });
+    return closest;
+  }
+
+  function buildCarousel() {
+    if (!carouselGrid) return;
+    carouselGrid.innerHTML = '';
+    const activeTab = document.querySelector('.projects__tab.active');
+    const filter = activeTab ? activeTab.getAttribute('data-filter') : 'all';
+    
+    const filtered = originalCards.filter(card => {
+      const cat = card.getAttribute('data-category');
+      return filter === 'all' || cat === filter;
+    });
+
+    filtered.forEach(c => {
+      c.classList.remove('clone');
+      carouselGrid.appendChild(c);
+    });
+
+    carouselGrid.scrollTo({ left: 0 });
+    buildDots(filtered.length);
+    updateActiveDot();
+  }
+
+  function buildDots(count) {
+    if (!dotsContainer) return;
+    dotsContainer.innerHTML = '';
+    for(let i = 0; i < count; i++) {
+      const dot = document.createElement('button');
+      dot.className = 'projects__dot' + (i === 0 ? ' active' : '');
+      dot.addEventListener('click', () => scrollToCard(i));
+      dotsContainer.appendChild(dot);
+    }
+  }
+
+  function updateActiveDot() {
+    if (!dotsContainer) return;
+    const activeIndex = getCurrentIndex();
+    const dots = dotsContainer.querySelectorAll('.projects__dot');
+    dots.forEach((d, i) => d.classList.toggle('active', i === activeIndex));
+  }
+
+  if (carouselGrid) {
+    carouselGrid.addEventListener('scroll', updateActiveDot, { passive: true });
+  }
+  
+  if (prevBtn && carouselGrid) {
+    prevBtn.addEventListener('click', () => {
+      const total = carouselGrid.children.length;
+      let nextIdx = getCurrentIndex() + 1;
+      if (nextIdx >= total) nextIdx = 0; // loop back to start
+      scrollToCard(nextIdx);
+    });
+  }
+  
+  if (nextBtn && carouselGrid) {
+    nextBtn.addEventListener('click', () => {
+      const total = carouselGrid.children.length;
+      let prevIdx = getCurrentIndex() - 1;
+      if (prevIdx < 0) prevIdx = total - 1; // loop back to end
+      scrollToCard(prevIdx);
+    });
+  }
+
   projectTabs.forEach(tab => {
     tab.addEventListener('click', () => {
       projectTabs.forEach(t => t.classList.remove('active'));
       tab.classList.add('active');
-      const filter = tab.getAttribute('data-filter');
-      projectCards.forEach(card => {
-        const cat = card.getAttribute('data-category');
-        const show = filter === 'all' || cat === filter;
-        card.classList.toggle('hidden', !show);
-        if (show) card.classList.add('active');
-      });
+      buildCarousel();
     });
   });
+
+  buildCarousel();
 
   /* === 4. ACTIVE SECTION HIGHLIGHT === */
   function highlightActiveSection() {
