@@ -128,6 +128,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const activeIndex = getCurrentIndex();
     const dots = dotsContainer.querySelectorAll('.projects__dot');
     dots.forEach((d, i) => d.classList.toggle('active', i === activeIndex));
+    
+    // Add is-active class to the current card for mobile reveal
+    const cards = Array.from(carouselGrid.children);
+    cards.forEach((card, i) => {
+      card.classList.toggle('is-active', i === activeIndex);
+    });
   }
 
   if (carouselGrid) {

@@ -645,6 +645,20 @@ input, textarea { font-family: inherit; font-size: inherit; outline: none; borde
   .navbar__menu.active { transform: translateY(0); opacity: 1; visibility: visible; }
   .navbar__list { flex-direction: column; gap: var(--space-sm); }
   .navbar__link { width: 100%; padding: var(--space-sm) var(--space-md); border-radius: var(--radius-sm); }
+
+  /* Automatic reveal for active project card on mobile */
+  .project-card.is-active .project-card__image {
+    transform: scale(1.05);
+  }
+  .project-card.is-active .project-card__description {
+    max-height: 100px;
+    opacity: 1;
+    margin-top: 6px;
+  }
+  .project-card.is-active .project-card__btn {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* ============================================
