@@ -203,30 +203,40 @@
       <!-- STATS -->
       <section class="stats section" id="stats">
         <div class="stats__container container">
-          <div class="stats__card reveal">
-            <div class="stats__icon"><i class="bx bx-book"></i></div>
-            <div class="stats__value">
-              <span class="stats__plus">+</span>
-              <h3 class="stats__number" data-target="3">0</h3>
+
+          <div class="stats__metric reveal">
+            <div class="stats__figure">
+              <span class="stats__plus num-font">+</span>
+              <h3 class="stats__number num-font" data-target="3">0</h3>
             </div>
-            <p class="stats__label">سنوات في التعلم المستمر</p>
-          </div>
-          <div class="stats__card reveal reveal-delay-1">
-            <div class="stats__icon"><i class="bx bx-file-blank"></i></div>
-            <div class="stats__value">
-              <span class="stats__plus">+</span>
-              <h3 class="stats__number" data-target="120">0</h3>
+            <div class="stats__meta">
+              <span class="stats__label">سنوات خبرة</span>
+              <span class="stats__sub">في التعلم المستمر والتطوير التقني</span>
             </div>
-            <p class="stats__label">ورقة عمل منجزة</p>
           </div>
-          <div class="stats__card reveal reveal-delay-2">
-            <div class="stats__icon"><i class="bx bx-server"></i></div>
-            <div class="stats__value">
-              <span class="stats__plus">+</span>
-              <h3 class="stats__number" data-target="25">0</h3>
+
+          <div class="stats__metric reveal reveal-delay-1">
+            <div class="stats__figure">
+              <span class="stats__plus num-font">+</span>
+              <h3 class="stats__number num-font" data-target="120">0</h3>
             </div>
-            <p class="stats__label">خدمة تقنية مقدمة</p>
+            <div class="stats__meta">
+              <span class="stats__label">ورقة عمل</span>
+              <span class="stats__sub">تم إنجازها بدقة واحترافية عالية</span>
+            </div>
           </div>
+
+          <div class="stats__metric reveal reveal-delay-2">
+            <div class="stats__figure">
+              <span class="stats__plus num-font">+</span>
+              <h3 class="stats__number num-font" data-target="25">0</h3>
+            </div>
+            <div class="stats__meta">
+              <span class="stats__label">خدمة تقنية</span>
+              <span class="stats__sub">مقدمة لعملاء راضين عن النتائج</span>
+            </div>
+          </div>
+
         </div>
       </section>
 
@@ -256,8 +266,7 @@
             <span class="section__subtitle">أعمالي</span>
             <h2 class="section__title">الأعمال المنجزة</h2>
             <p class="section__description">
-              مشاريع حقيقية تعكس خبرتي في هندسة البرمجيات وتطوير الشبكات
-              المصرفية.
+              هذه بعض من مشاريعي الحقيقية التي نفذتها، والتي تعكس خبرتي في هندسة البرمجيات وتطوير الشبكات المصرفية.
             </p>
           </div>
           <div class="projects__tabs reveal">
@@ -279,6 +288,42 @@
             <button class="projects__nav projects__nav--prev" aria-label="السابق"><i class="bx bx-chevron-left"></i></button>
             <button class="projects__nav projects__nav--next" aria-label="التالي"><i class="bx bx-chevron-right"></i></button>
             <div class="projects__grid">
+              <article class="project-card reveal" data-category="software">
+                <div class="project-card__image-wrapper">
+                  <img src="assets/images/project7.webp" alt="تصميم المواقع" class="project-card__image" loading="lazy" decoding="async" width="800" height="450" />
+                </div>
+                <a href="#home" class="project-card__btn"><i class="bx bx-link-external"></i>معاينة التصميم</a>
+                <div class="project-card__overlay">
+                  <div class="project-card__content">
+                    <h3 class="project-card__title">تصميم وتطوير المواقع</h3>
+                    <p class="project-card__description">إنشاء مواقع شخصية، تجارية، وإعلانية متكاملة بتصميمات حديثة وتجربة مستخدم متميزة.</p>
+                  </div>
+                </div>
+              </article>
+              <article class="project-card reveal" data-category="software">
+                <div class="project-card__image-wrapper">
+                  <img src="assets/images/project8.webp" alt="البريد الرسمي" class="project-card__image" loading="lazy" decoding="async" width="800" height="450" />
+                </div>
+                <a href="#contact" class="project-card__btn"><i class="bx bx-envelope"></i>اطلب الخدمة</a>
+                <div class="project-card__overlay">
+                  <div class="project-card__content">
+                    <h3 class="project-card__title">البريد الإلكتروني الرسمي</h3>
+                    <p class="project-card__description">إنشاء وإدارة بريد إلكتروني احترافي مخصص باسم النطاق (Domain Name) لتعزيز الهوية التجارية.</p>
+                  </div>
+                </div>
+              </article>
+              <article class="project-card reveal" data-category="software">
+                <div class="project-card__image-wrapper">
+                  <img src="assets/images/project9.webp" alt="مواقع CBL" class="project-card__image" loading="lazy" decoding="async" width="800" height="450" />
+                </div>
+                <a href="#contact" class="project-card__btn"><i class="bx bx-cog"></i>اطلب التكامل</a>
+                <div class="project-card__overlay">
+                  <div class="project-card__content">
+                    <h3 class="project-card__title">مواقع متوافقة مع CBL</h3>
+                    <p class="project-card__description">تطوير مواقع إلكترونية متخصصة تدعم التكامل مع أنظمة مصرف ليبيا المركزي (CBL) لتسهيل المعاملات.</p>
+                  </div>
+                </div>
+              </article>
               <article class="project-card reveal" data-category="software">
                 <div class="project-card__image-wrapper">
                   <img src="assets/images/project1.webp" alt="تطبيق بنيان" class="project-card__image" loading="lazy" decoding="async" width="800" height="450" />

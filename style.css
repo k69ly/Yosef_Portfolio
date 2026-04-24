@@ -274,33 +274,82 @@ input, textarea { font-family: inherit; font-size: inherit; outline: none; borde
 .social-link:hover { transform: translateY(-4px) scale(1.05); color: #fff; background: var(--clr-accent); box-shadow: 0 8px 25px rgba(8, 145, 178, 0.35); }
 
 /* ============================================
-   STATS
+   STATS — Horizontal Metric Cards
    ============================================ */
 .stats { padding-top: 0; }
-.stats__container { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-lg); }
-
-.stats__card {
-  position: relative; display: flex; flex-direction: column; align-items: center; text-align: center;
-  padding: var(--space-xl) var(--space-lg);
-  background: var(--clr-card-bg); border-radius: var(--radius-lg);
-  box-shadow: var(--clr-card-shadow); border: 1px solid var(--clr-border);
-  transition: transform var(--transition-bounce), box-shadow var(--transition-base); overflow: hidden;
-}
-.stats__card::before { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 3px; background: var(--clr-accent-gradient); opacity: 0; transition: opacity var(--transition-base); }
-.stats__card:hover { transform: translateY(-6px); box-shadow: var(--clr-card-shadow-hover), 0 0 20px var(--clr-accent-glow); }
-.stats__card:hover::before { opacity: 0; }
-
-.stats__icon {
-  display: flex; align-items: center; justify-content: center;
-  width: 50px; height: 50px; border-radius: var(--radius-md);
-  background: var(--clr-accent-glow); color: var(--clr-accent);
-  font-size: var(--fs-xl); margin-bottom: var(--space-sm);
+.stats__container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-md);
 }
 
-.stats__value { display: flex; align-items: baseline; justify-content: center; direction: ltr; gap: 2px; }
-.stats__number { font-size: var(--fs-3xl); font-weight: var(--fw-extrabold); color: var(--clr-text-primary); font-family: var(--ff-num); }
-.stats__plus { font-size: var(--fs-2xl); font-weight: var(--fw-bold); color: var(--clr-accent); font-family: var(--ff-num); }
-.stats__label { font-size: var(--fs-sm); color: var(--clr-text-muted); margin-top: var(--space-xs); }
+.stats__metric {
+  display: flex;
+  align-items: center;
+  gap: var(--space-lg);
+  padding: var(--space-lg) var(--space-xl);
+  background: var(--clr-card-bg);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--clr-border);
+  border-inline-start: 3px solid transparent;
+  background-clip: padding-box;
+  position: relative;
+  transition: transform var(--transition-bounce), border-color var(--transition-fast), box-shadow var(--transition-base);
+  overflow: hidden;
+}
+/* Gradient accent border indicator */
+.stats__metric::before {
+  content: '';
+  position: absolute;
+  inset-inline-start: 0; top: 15%; bottom: 15%;
+  width: 3px;
+  background: var(--clr-accent-gradient);
+  border-radius: var(--radius-full);
+}
+.stats__metric:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 28px var(--clr-accent-glow);
+  border-color: var(--clr-accent-light);
+}
+
+/* Large gradient number on one side */
+.stats__figure {
+  display: flex;
+  align-items: baseline;
+  gap: 2px;
+  direction: ltr;
+  flex-shrink: 0;
+}
+.stats__plus {
+  font-size: 1.3rem; font-weight: var(--fw-bold);
+  background: var(--clr-accent-gradient);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+  line-height: 1.5;
+}
+.stats__number {
+  font-size: 2.8rem; font-weight: var(--fw-extrabold);
+  background: var(--clr-accent-gradient);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+  line-height: 1; letter-spacing: -0.03em;
+}
+
+/* Text side */
+.stats__meta {
+  display: flex; flex-direction: column; gap: 3px;
+  min-width: 0;
+}
+.stats__label {
+  font-size: var(--fs-sm); font-weight: var(--fw-semibold);
+  color: var(--clr-text-primary);
+  white-space: nowrap;
+}
+.stats__sub {
+  font-size: var(--fs-xs); color: var(--clr-text-muted);
+  line-height: 1.4;
+}
+
+/* Legacy classes — kept for backward compatibility if needed, but hidden */
+.stats__card, .stats__icon, .stats__value { display: none; }
 
 /* ============================================
    ACTION BUTTONS
@@ -675,6 +724,9 @@ input, textarea { font-family: inherit; font-size: inherit; outline: none; borde
 @media screen and (max-width: 992px) {
   :root { --fs-4xl: 2.8rem; --fs-3xl: 2rem; }
   .container { max-width: 720px; }
+  .stats__container { grid-template-columns: 1fr; gap: var(--space-md); }
+  .stats__metric { padding: var(--space-md) var(--space-xl); justify-content: center; text-align: center; }
+  .stats__meta { text-align: center; }
   .contact__content { grid-template-columns: 1fr; }
   .contact__info { flex-direction: column; }
   .contact__info-card { flex: unset; min-width: unset; width: 100%; }
@@ -684,7 +736,7 @@ input, textarea { font-family: inherit; font-size: inherit; outline: none; borde
 
 @media screen and (max-width: 768px) {
   :root { --fs-4xl: 2.4rem; --fs-3xl: 1.75rem; --fs-2xl: 1.5rem; }
-  .stats__container { grid-template-columns: repeat(3, 1fr); gap: var(--space-sm); }
+  .stats__number { font-size: 2.3rem; }
   .hero__image-wrapper, .hero__image { width: 130px; height: 130px; }
   .skills__layout { grid-template-columns: 1fr; }
   .skills__badges { grid-template-columns: repeat(2, 1fr); }
@@ -695,9 +747,12 @@ input, textarea { font-family: inherit; font-size: inherit; outline: none; borde
 @media screen and (max-width: 480px) {
   :root { --fs-4xl: 2rem; --fs-3xl: 1.5rem; --fs-2xl: 1.25rem; }
   .container { padding: 0 var(--space-md); }
-  .stats__container { grid-template-columns: 1fr; }
-  .stats__card { flex-direction: row; text-align: start; gap: var(--space-md); padding: var(--space-md); }
-  .stats__icon { margin-bottom: 0; flex-shrink: 0; }
+  .stats__metric { padding: 14px 16px; gap: 16px; flex-direction: row; justify-content: center; align-items: center; }
+  .stats__meta { text-align: start; }
+  .stats__number { font-size: 1.8rem; }
+  .stats__plus { font-size: 1.1rem; }
+  .stats__label { font-size: 0.85rem; font-weight: var(--fw-bold); }
+  .stats__sub { font-size: 0.7rem; }
   .projects__nav { display: none; }
   .projects__grid { padding: var(--space-md) var(--space-md); gap: var(--space-md); }
   /* Hover interactions on mobile will naturally require tapping to reveal the description */
