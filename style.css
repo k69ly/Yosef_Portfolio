@@ -136,10 +136,11 @@ input, textarea { font-family: inherit; font-size: inherit; outline: none; borde
 
 .section__subtitle {
   display: inline-block; font-size: var(--fs-sm); font-weight: var(--fw-semibold);
-  color: var(--clr-accent); letter-spacing: 2px; margin-bottom: var(--space-sm);
+  color: var(--clr-accent); margin-bottom: var(--space-sm);
   background: var(--clr-accent-glow); padding: var(--space-xs) var(--space-md);
   border-radius: var(--radius-full);
 }
+html[dir="ltr"] .section__subtitle { letter-spacing: 2px; text-transform: uppercase; }
 
 .section__title { font-size: var(--fs-3xl); font-weight: var(--fw-bold); color: var(--clr-text-primary); margin-bottom: var(--space-sm); line-height: 1.3; }
 .section__description { font-size: var(--fs-md); color: var(--clr-text-secondary); max-width: 560px; margin: 0 auto; }
