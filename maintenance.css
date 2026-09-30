@@ -1,0 +1,372 @@
+/* ============================================
+   MAINTENANCE PAGE — standalone styles
+   ============================================ */
+
+@font-face {
+  font-family: 'GE SS Two';
+  src: local('GE SS Two Medium'), local('GESSTwoMedium-Medium'),
+       url('/assets/fonts/GE SS Two Medium.ttf') format('truetype');
+  font-weight: 100 600;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'GE SS Two';
+  src: local('GE SS Two Bold'), local('GESSTwoBold-Bold'),
+       url('/assets/fonts/GE SS Two Bold.otf') format('opentype');
+  font-weight: 700 900;
+  font-display: swap;
+}
+
+/* ---------- Paper ---------- */
+:root {
+  --bg: #faf9f7;
+  --halo-a: rgba(15, 125, 146, 0.10);
+  --halo-b: rgba(15, 125, 146, 0.045);
+  --halo-warm: rgba(186, 132, 74, 0.07);
+  --text: #23262d;
+  --soft: #5f646d;
+  --muted: #8d9198;
+  --rule: rgba(35, 38, 45, 0.12);
+  --sheen: rgba(15, 125, 146, 0.55);
+  --accent: #0f7d92;
+  --frame: rgba(15, 125, 146, 0.22);
+  --grain-opacity: 0.035;
+  --grain-blend: multiply;
+
+  --ff: 'GE SS Two', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --ff-latin: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+/* ---------- Ink — softened, never pure black ---------- */
+[data-theme="dark"] {
+  --bg: #14161a;
+  --halo-a: rgba(95, 200, 220, 0.11);
+  --halo-b: rgba(95, 200, 220, 0.05);
+  --halo-warm: rgba(214, 164, 108, 0.06);
+  --text: #e4e7ec;
+  --soft: #9aa0a9;
+  --muted: #767c85;
+  --rule: rgba(255, 255, 255, 0.14);
+  --sheen: rgba(120, 214, 232, 0.7);
+  --accent: #5fc8dc;
+  --frame: rgba(120, 214, 232, 0.2);
+  --grain-opacity: 0.06;
+  --grain-blend: overlay;
+}
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  font-family: var(--ff);
+  background: var(--bg);
+  color: var(--text);
+  font-size: 1rem;
+  line-height: 1.85;
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4.5rem 1.75rem;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ---------- Two halos, out of phase: cool over warm ---------- */
+body::before,
+body::after {
+  content: '';
+  position: fixed;
+  pointer-events: none;
+  z-index: 0;
+  border-radius: 50%;
+}
+
+body::before {
+  top: 50%;
+  left: 50%;
+  width: min(72rem, 150vw);
+  height: min(48rem, 110vh);
+  transform: translate(-50%, -58%);
+  background: radial-gradient(closest-side, var(--halo-a), var(--halo-b) 48%, transparent 74%);
+  animation: breathe 19s ease-in-out infinite;
+}
+
+body::after {
+  bottom: -18vmax;
+  inset-inline-start: -14vmax;
+  width: min(46rem, 96vw);
+  height: min(34rem, 72vh);
+  background: radial-gradient(closest-side, var(--halo-warm), transparent 70%);
+  animation: drift 27s ease-in-out infinite;
+}
+
+/* ---------- Paper grain: still, tactile, almost invisible ---------- */
+.grain {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: var(--grain-opacity);
+  mix-blend-mode: var(--grain-blend);
+  background-size: 190px 190px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='190' height='190'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* ---------- Corner marks: four hairlines that draw themselves in ---------- */
+.frame { position: fixed; inset: 0; z-index: 0; pointer-events: none; }
+
+.frame span {
+  position: absolute;
+  width: 0;
+  height: 0;
+  border: 0 solid var(--frame);
+  animation: corner 1.4s cubic-bezier(0.22, 1, 0.36, 1) 0.9s forwards;
+}
+
+.frame span:nth-child(1) { top: 1.6rem; left: 1.6rem; border-top-width: 1px; border-left-width: 1px; }
+.frame span:nth-child(2) { top: 1.6rem; right: 1.6rem; border-top-width: 1px; border-right-width: 1px; }
+.frame span:nth-child(3) { bottom: 1.6rem; left: 1.6rem; border-bottom-width: 1px; border-left-width: 1px; }
+.frame span:nth-child(4) { bottom: 1.6rem; right: 1.6rem; border-bottom-width: 1px; border-right-width: 1px; }
+
+.page {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 36rem;
+  text-align: center;
+}
+
+/* ---------- Eyebrow: hairlines that draw themselves ---------- */
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.85rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.24em;
+  color: var(--accent);
+  margin-bottom: 2.5rem;
+  opacity: 0;
+  animation: fade 1s ease 0.15s forwards;
+}
+
+.eyebrow::before,
+.eyebrow::after {
+  content: '';
+  width: 0;
+  height: 1px;
+  background: currentColor;
+  opacity: 0.55;
+  animation: draw 1.1s cubic-bezier(0.22, 1, 0.36, 1) 0.35s forwards;
+}
+
+/* ---------- Headline: word by word, out of a blur ---------- */
+h1 {
+  font-size: clamp(1.875rem, 6vw, 3rem);
+  font-weight: 700;
+  line-height: 1.45;
+  letter-spacing: -0.005em;
+  margin-bottom: 0.9rem;
+  text-wrap: balance;
+}
+
+h1 .w {
+  display: inline-block;
+  opacity: 0;
+  filter: blur(12px);
+  transform: translateY(16px);
+  animation: reveal 1.1s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation-delay: calc(var(--i) * 0.08s + 0.45s);
+}
+
+.lead {
+  color: var(--soft);
+  font-size: clamp(0.9375rem, 2.2vw, 1.0625rem);
+  opacity: 0;
+  animation: fade 1.1s ease 1s forwards;
+}
+
+/* ---------- Divider: a hairline, a travelling sheen, a small gem ---------- */
+.divider {
+  position: relative;
+  direction: ltr;
+  width: min(17rem, 68%);
+  height: 7px;
+  margin: 2.75rem auto 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  animation: fade 1.1s ease 1.2s forwards;
+}
+
+.divider .line {
+  position: absolute;
+  inset-inline: 0;
+  top: 50%;
+  height: 1px;
+  background: var(--rule);
+  overflow: hidden;
+}
+
+.divider .line::after {
+  content: '';
+  position: absolute;
+  inset-block: 0;
+  left: 0;
+  width: 45%;
+  background: linear-gradient(90deg, transparent, var(--sheen), transparent);
+  animation: sheen 7s cubic-bezier(0.55, 0, 0.45, 1) 2s infinite;
+}
+
+.divider .gem {
+  position: relative;
+  width: 5px;
+  height: 5px;
+  transform: rotate(45deg);
+  background: var(--accent);
+  box-shadow: 0 0 0 5px var(--bg), 0 0 12px 1px var(--halo-a);
+  animation: glimmer 7s ease-in-out 2s infinite;
+}
+
+/* ---------- Links: underline grows from the centre ---------- */
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem 1.5rem;
+  font-size: 0.875rem;
+  opacity: 0;
+  animation: fade 1.1s ease 1.4s forwards;
+}
+
+.links a {
+  position: relative;
+  color: var(--soft);
+  text-decoration: none;
+  padding-bottom: 3px;
+  transition: color 0.3s ease;
+}
+
+.links a::after {
+  content: '';
+  position: absolute;
+  inset-inline: 0;
+  bottom: 0;
+  height: 1px;
+  background: var(--accent);
+  transform: scaleX(0);
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.links a:hover,
+.links a:focus-visible { color: var(--text); }
+
+.links a:hover::after,
+.links a:focus-visible::after { transform: scaleX(1); }
+
+.links .ltr { font-family: var(--ff-latin); direction: ltr; unicode-bidi: isolate; }
+
+/* ---------- Footer ---------- */
+.foot {
+  margin-top: 3rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+  color: var(--muted);
+  opacity: 0;
+  animation: fade 1.1s ease 1.6s forwards;
+}
+
+.foot a {
+  color: var(--muted);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: color 0.3s ease, border-color 0.3s ease;
+}
+
+.foot a:hover,
+.foot a:focus-visible { color: var(--text); border-bottom-color: var(--rule); }
+
+.foot .sep { margin: 0 0.7rem; opacity: 0.5; }
+
+.year { font-family: var(--ff-latin); }
+
+/* ---------- Animations ---------- */
+@keyframes reveal {
+  to { opacity: 1; filter: blur(0); transform: none; }
+}
+
+@keyframes fade {
+  to { opacity: 1; }
+}
+
+@keyframes draw {
+  to { width: 2.5rem; }
+}
+
+@keyframes corner {
+  to { width: 1.75rem; height: 1.75rem; }
+}
+
+@keyframes breathe {
+  0%, 100% { opacity: 0.75; transform: translate(-50%, -58%) scale(1); }
+  50% { opacity: 1; transform: translate(-50%, -58%) scale(1.06); }
+}
+
+@keyframes drift {
+  0%, 100% { opacity: 0.6; transform: translate(0, 0); }
+  50% { opacity: 1; transform: translate(3vmax, -2vmax); }
+}
+
+@keyframes sheen {
+  0% { transform: translateX(-120%); }
+  45%, 100% { transform: translateX(340%); }
+}
+
+@keyframes glimmer {
+  0%, 26%, 100% { opacity: 0.75; }
+  13% { opacity: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  h1 .w, .eyebrow, .lead, .divider, .links, .foot { opacity: 1; filter: none; transform: none; }
+  .divider { transform: none; }
+  .divider .gem { transform: rotate(45deg); opacity: 1; }
+  .divider .line::after { display: none; }
+  .eyebrow::before, .eyebrow::after { width: 2.5rem; }
+  .frame span { width: 1.75rem; height: 1.75rem; }
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 30rem) {
+  body { padding: 3.5rem 1.375rem; }
+  .eyebrow { margin-bottom: 1.9rem; letter-spacing: 0.2em; gap: 0.65rem; }
+  h1 { line-height: 1.5; }
+  .divider { width: 78%; margin: 2.25rem auto 2rem; }
+  .links { gap: 0.3rem 1.15rem; }
+  .foot { margin-top: 2.25rem; }
+  .foot .sep { margin: 0 0.5rem; }
+
+  .frame span:nth-child(1), .frame span:nth-child(2) { top: 1rem; }
+  .frame span:nth-child(3), .frame span:nth-child(4) { bottom: 1rem; }
+  .frame span:nth-child(1), .frame span:nth-child(3) { left: 1rem; }
+  .frame span:nth-child(2), .frame span:nth-child(4) { right: 1rem; }
+  @keyframes corner { to { width: 1.15rem; height: 1.15rem; } }
+}
+
+@media (max-height: 34rem) {
+  body { padding: 2.5rem 1.375rem; }
+  .eyebrow { margin-bottom: 1.35rem; }
+  .divider { margin: 1.75rem auto 1.5rem; }
+  .foot { margin-top: 1.75rem; }
+}

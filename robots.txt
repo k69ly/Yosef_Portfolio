@@ -2,4 +2,8 @@
 User-agent: *
 Allow: /
 
+# Parked copies of the live site during maintenance
+Disallow: /home.html
+Disallow: /en/home.html
+
 Sitemap: https://yosef.ly/sitemap.xml
