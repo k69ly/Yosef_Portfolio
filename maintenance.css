@@ -193,7 +193,6 @@ h1 .w {
 /* ---------- Divider: a hairline, a travelling sheen, a small gem ---------- */
 .divider {
   position: relative;
-  direction: ltr;
   width: min(17rem, 68%);
   height: 7px;
   margin: 2.75rem auto 2.5rem;
@@ -221,6 +220,13 @@ h1 .w {
   width: 45%;
   background: linear-gradient(90deg, transparent, var(--sheen), transparent);
   animation: sheen 7s cubic-bezier(0.55, 0, 0.45, 1) 2s infinite;
+}
+
+/* Right-to-left pages: the sheen runs the way the text reads */
+[dir="rtl"] .divider .line::after {
+  left: auto;
+  right: 0;
+  animation-name: sheen-rtl;
 }
 
 .divider .gem {
@@ -325,6 +331,11 @@ h1 .w {
 @keyframes sheen {
   0% { transform: translateX(-120%); }
   45%, 100% { transform: translateX(340%); }
+}
+
+@keyframes sheen-rtl {
+  0% { transform: translateX(120%); }
+  45%, 100% { transform: translateX(-340%); }
 }
 
 @keyframes glimmer {
